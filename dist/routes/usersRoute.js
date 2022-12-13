@@ -7,7 +7,7 @@ const router = (0, express_1.Router)();
 router.post('/register', userController_1.registerUser);
 router.post('/login', userController_1.loginUser);
 router.get('/getsingleuser/:id', auth_1.auth, userController_1.getSingleUser);
-router.get('/getallusers', auth_1.auth, userController_1.getAllUsers);
+router.get('/getallusers', userController_1.getAllUsers);
 router.patch('/updateuser/:id', auth_1.auth, userController_1.updateUser);
 router.delete('/deleteuser/:id', auth_1.auth, userController_1.deleteUser);
 exports.default = router;

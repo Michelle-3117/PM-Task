@@ -1,0 +1,183 @@
+openapi: 3.0.0
+info:
+  title: PM-Task
+  description: A simple Crud Operation task
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://pw-task.onrender.com
+  variables: {}
+paths:
+  /user/register:
+    post:
+      tags:
+      - User
+      summary: Register User
+      description: Register a user
+      operationId: RegisterUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - example:
+                  firstname: Imeh
+                  lastname: Usoro
+                  email: imeusoro@gmail.com
+                  gender: male
+                  date_of_birth: 27-11-2001
+                  phonenumber: '09093215077'
+                  password: '1111'
+                  confirm_password: '1111'
+            example:
+              firstname: Imeh
+              lastname: Usoro
+              email: imeusoro@gmail.com
+              gender: male
+              date_of_birth: 27-11-2001
+              phonenumber: '09093215077'
+              password: '1111'
+              confirm_password: '1111'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /user/login:
+    post:
+      tags:
+      - User
+      summary: Login User
+      description: Login a user
+      operationId: LoginUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - example:
+                  email: imeusoro@gmail.com
+                  password: '1111'
+            example:
+              email: imeusoro@gmail.com
+              password: '1111'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /user/getsingleuser/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - User
+      summary: Get Single User
+      description: Get a single user
+      operationId: GetSingleUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /user/getallusers:
+    get:
+      tags:
+      - User
+      summary: Get all users
+      description: Get all users
+      operationId: Getallusers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /user/updateuser/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    patch:
+      tags:
+      - User
+      summary: update user
+      description: Update a user
+      operationId: updateuser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - example:
+                  firstname: Imeh
+                  lastname: Usoro
+                  email: imeusoro@gmail.com
+                  gender: male
+                  date_of_birth: 27-11-2001
+                  phonenumber: '09093215077'
+                  password: '1111'
+            example:
+              firstname: Imeh
+              lastname: Usoro
+              email: imeusoro@gmail.com
+              gender: male
+              date_of_birth: 27-11-2001
+              phonenumber: '09093215077'
+              password: '1111'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /user/deleteuser/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: The user ID
+    delete:
+      tags:
+      - User
+      summary: Delete user
+      description: Delete a user
+      operationId: Deleteuser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+security:
+- httpBearer: []
+tags:
+- name: User
+  description: ''
